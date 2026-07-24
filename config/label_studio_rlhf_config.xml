@@ -1,0 +1,35 @@
+<View>
+  <Header value="Evaluator: Margaret Kyalo | Email: mnkyalo22@gmail.com"/>
+  <Header value="Case Study: Hydrobiology RLHF"/>
+  
+  <Header value="Prompt:"/>
+  <Text name="prompt" value="$prompt"/>
+
+  <Header value="Compare AI Responses:"/>
+  <View style="display: flex; direction: row;">
+    <View style="flex: 1; margin-right: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd;">
+      <Header value="Response A"/>
+      <Text name="response_a" value="$response_a"/>
+    </View>
+    <View style="flex: 1; padding: 10px; background: #f9f9f9; border: 1px solid #ddd;">
+      <Header value="Response B"/>
+      <Text name="response_b" value="$response_b"/>
+    </View>
+  </View>
+
+  <Header value="Select Better Response:"/>
+  <Choices name="preference" toName="prompt" choice="single-radio" required="true">
+    <Choice value="Response A is better"/>
+    <Choice value="Response B is better"/>
+    <Choice value="Tie / Equal Quality"/>
+  </Choices>
+
+  <Header value="Fact-Checking &amp; Error Flagging:"/>
+  <Choices name="hallucinations" toName="prompt" choice="multiple">
+    <Choice value="Response A contains hallucinations or factual errors"/>
+    <Choice value="Response B contains hallucinations or factual errors"/>
+  </Choices>
+
+  <Header value="Written Critique &amp; Justification:"/>
+  <TextArea name="critique" toName="prompt" rows="5" maxSubmissions="1" editable="true"/>
+</View>
